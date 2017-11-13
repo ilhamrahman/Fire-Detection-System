@@ -5,7 +5,6 @@ public class DataAnalysis extends Receiver {
 	public String smoke;
 	static final int tempThreshold = 50;
 	public float tempValue;
-	public int n = 0;
 	public String SplitStringTemp() {
 		//String received = Receiver.(whatever is received in receiver class from DCU)
 		String received = "30:20:10";
