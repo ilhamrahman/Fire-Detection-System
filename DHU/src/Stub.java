@@ -1,6 +1,7 @@
 
 public class Stub extends DataAnalysis {
 	String received = "30.20.10";
+	
 	//@override
 	public String SplitString(String received) {
 		
