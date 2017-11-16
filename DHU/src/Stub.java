@@ -7,7 +7,7 @@ public class Stub extends DataAnalysis {
 		return temp;
 	}
 	public float getTemp() {
-		return 40;
+		return 30;
 	}
 	public boolean temperature() {
 		if(getTemp() > 50) {

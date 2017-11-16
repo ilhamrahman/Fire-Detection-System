@@ -11,6 +11,25 @@ public class DataAnalysisTest {
 		//assertTrue(da.SplitString().equals("10"));
 	//}
 
+	
+	@Test
+	public void testSplitStringTemp() {
+		DataAnalysis da = new DataAnalysis();
+		assertTrue(da.SplitStringTemp() == "30");
+	}
+
+	@Test
+	public void testSplitStringFire() {
+		DataAnalysis da = new DataAnalysis();
+		assertTrue(da.SplitStringFire() == "20");
+	}
+
+	@Test
+	public void testSplitStringSmoke() {
+		DataAnalysis da = new DataAnalysis();
+		assertTrue(da.SplitStringSmoke() == "10");
+	}
+	
 	@Test
 	public void testGetTemp() {
 		DataAnalysis da = new DataAnalysis();
@@ -28,11 +47,12 @@ public class DataAnalysisTest {
 		DataAnalysis da = new DataAnalysis();
 		assertTrue(da.getSmoke() == 10);
 	}
+	
 
 	@Test
 	public void testTemperature() {
 		DataAnalysis da = new DataAnalysis();
-		assertTrue(da.temperature());
+		assertFalse(da.temperature());
 	}
 
 }
