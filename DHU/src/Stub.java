@@ -3,9 +3,15 @@ public class Stub extends DataAnalysis {
 	String received = "30.20.10";
 	
 	//@override
-	public String SplitString(String received) {
+	public String SplitStringTemp() {
 		
-		return temp;
+		return "30";
+	}
+	public String SplitStringFire() {
+		return "20";
+	}
+	public String SplitStringSmoke() {
+		return "10";
 	}
 	public float getTemp() {
 		return 30;

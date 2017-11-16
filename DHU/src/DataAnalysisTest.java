@@ -15,19 +15,19 @@ public class DataAnalysisTest {
 	@Test
 	public void testSplitStringTemp() {
 		DataAnalysis da = new DataAnalysis();
-		assertTrue(da.SplitStringTemp() == "30");
+		assertTrue(da.SplitStringTemp().equals("30"));
 	}
 
 	@Test
 	public void testSplitStringFire() {
 		DataAnalysis da = new DataAnalysis();
-		assertTrue(da.SplitStringFire() == "20");
+		assertTrue(da.SplitStringFire().equals("20"));
 	}
 
 	@Test
 	public void testSplitStringSmoke() {
 		DataAnalysis da = new DataAnalysis();
-		assertTrue(da.SplitStringSmoke() == "10");
+		assertTrue(da.SplitStringSmoke().equals("10"));
 	}
 	
 	@Test
