@@ -10,11 +10,12 @@ public class DataCollectionClass{
 	SerialPort ArPort = SerialPort.getCommPort("COM4");
 	//SerialPortEvent Event = new SerialPortEvent(ArPort, 1);
 	
-	private String Data;
-	private String Temp;
-	private String Flame;
-	private String Smoke;
-	private Scanner data;
+	protected String Data;
+	protected String Temp;
+	protected String Flame;
+	protected String Smoke;
+	protected Scanner data;
+	protected boolean status;
 	
 	protected float temp;
 	protected float flame;
@@ -28,7 +29,8 @@ public class DataCollectionClass{
 	}
 	
 	public String getValue(){
-		while(data.hasNext()) {
+		status = data.hasNext();
+		while(status) {
 			Data = data.nextLine();
 			break;
 			//Float Temp = Float.valueOf(temp);
@@ -38,19 +40,33 @@ public class DataCollectionClass{
 		return Data;
 	}
 	
-	public void SetData() {
-		//Take Data and split it into 3 individual strings and set Temp, Flame and Smoke
-	}
-	
 	public String ReturnTemp() {
+		//Data = "30:20:10";
+		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
+		Temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
+		Flame = split[1];
+		Smoke = split[2];
+		//System.out.println("temp: " + smoke);
 		return Temp;
 	}
 	
 	public String ReturnFlame() {
+		//Data = "30:20:10";
+		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
+		Temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
+		Flame = split[1];
+		Smoke = split[2];
+		//System.out.println("temp: " + smoke);
 		return Flame;
 	}
 	
 	public String ReturnSmoke() {
+		//Data = "30:20:10";
+		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
+		Temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
+		Flame = split[1];
+		Smoke = split[2];
+		//System.out.println("temp: " + smoke);
 		return Smoke;
 	}
 	
@@ -59,13 +75,7 @@ public class DataCollectionClass{
 		temp = (float) ((5.0 * temp * 100.0)/1024.0); 
 		return temp;
 	}
-	
-	public float GetFlameVal() {
-		flame = Float.parseFloat(Flame);
-		flame = (float) ((5.0 * temp * 100.0)/1024.0); //change
-		return flame;
-	}
-	
+
 	public float GetSmokeVal() {
 		smoke = Float.parseFloat(Smoke);
 		smoke = (float) ((5.0 * temp * 100.0)/1024.0); //change

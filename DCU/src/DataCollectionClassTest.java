@@ -12,58 +12,38 @@ public class DataCollectionClassTest {
 
 	@Test
 	public void testGetValue() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetData() {
-		fail("Not yet implemented");
+		assertFalse(s.getValue().equals(""));
 	}
 
 	@Test
 	public void testReturnTemp() throws Exception {
-		assertTrue(s.ReturnTemp().equals(s.Temp));
+		assertTrue(s.ReturnTemp().equals("30"));
 	}
 
 	@Test
 	public void testGetTempValEquals() throws Exception {
-		assertTrue(s.getTempVal() == s.temp);
+		assertTrue(s.getTempVal() == (float)30);
 	}
 	
 	@Test
 	public void testGetTempValHigher() throws Exception {
 		assertFalse(s.getTempVal() > (float)150.0);
 	}
+	
 	@Test
 	public void testGetTempValLower() throws Exception {
 		assertFalse(s.getTempVal() < (float)-55.0);
 	}
 	
 	@Test
-	public void testReturnFlame() {
-		fail("Not yet implemented");
+	public void testReturnFlame() throws Exception {
+		assertTrue(s.ReturnFlame().equals("20"));
 	}
 
 	@Test
-	public void testReturnSmoke() {
-		fail("Not yet implemented");
+	public void testReturnSmoke() throws Exception {
+		assertTrue(s.ReturnSmoke().equals("10"));
 	}
-
-	@Test
-	public void testGetTempVal() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetFlameVal() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetSmokeVal() {
-		fail("Not yet implemented");
-	}
-
 	
 
 }
