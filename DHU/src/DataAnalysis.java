@@ -26,6 +26,7 @@ public class DataAnalysis extends Receiver {
 		//System.out.println("temp: " + smoke);
 		return fire;
 	}
+
 	public String SplitStringSmoke() {
 		//String received = Receiver.(whatever is received in receiver class from DCU)
 		String received = "30:20:10";
