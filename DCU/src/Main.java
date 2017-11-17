@@ -1,38 +1,43 @@
 import java.util.Scanner;
-
+import java.util.concurrent.TimeUnit;
 import com.fazecast.jSerialComm.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
-		SerialPort ArPort = SerialPort.getCommPort("COM4");
-		//SerialPortEvent Event = new SerialPortEvent(ArPort, 1);
+		DataCollectionClass DataCollection = new DataCollectionClass(); 
+		boolean portStatus;
+		String Data;
+		final String Temp;
+		final String Flame;
+		final String Smoke;
 		
-		/**
-		SerialPort ports[] = SerialPort.getCommPorts();
-		System.out.println("Show the ports");
+		final float temp;
+		final float flame;
+		final float smoke;
 		
-		int i = 1;
-		for(SerialPort port : ports) {
-			System.out.println(i++ + ": " + port.getSystemPortName());
-		}
-		**/
-		if(ArPort.openPort()) {
-			ArPort.setComPortTimeouts(SerialPort.TIMEOUT_READ_SEMI_BLOCKING, 25, 0);;
-			
-			Scanner data = new Scanner(ArPort.getInputStream());
-
-			while(data.hasNextLine()) {
-				String temp = data.nextLine();
-				//Float Temp = Float.valueOf(temp);
-				//Temp = (float) ((5.0 * Temp * 100.0)/1024.0);
-				System.out.println(temp );
-			}
-			data.close();
+		while(true) {
+			portStatus = DataCollection.createPort();
+			Data = DataCollection.getValue();
+			TimeUnit.SECONDS.sleep(1);
+			System.out.println(Data);
+			//TimeUnit.SECONDS.sleep(1);
 		}
 		
-
+		//Flame = DataCollection.ReturnFlame();
+		//Smoke = DataCollection.ReturnSmoke();
+		
+		//temp = DataCollection.GetTempVal();
+		//flame = DataCollection.GetFlameVal();
+		//smoke = DataCollection.GetSmokeVal();
+		
 	}
+
+		
+
+
+	
+	
 
 }
