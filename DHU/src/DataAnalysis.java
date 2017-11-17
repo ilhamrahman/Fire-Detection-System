@@ -5,10 +5,11 @@ public class DataAnalysis extends Receiver {
 	public String smoke;
 	static final int tempThreshold = 50;
 	public float tempValue;
+	public String received = "60:20:10";
 	
 	public String SplitStringTemp() {
 		//String received = Receiver.(whatever is received in receiver class from DCU)
-		String received = "30:20:10";
+		//received = "30:20:10";
 		String[] split = received.split(":", 3);   //"." is the character at which the string will split. 
 		String temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
 		String fire = split[1];
@@ -18,7 +19,7 @@ public class DataAnalysis extends Receiver {
 	}
 	public String SplitStringFire() {
 		//String received = Receiver.(whatever is received in receiver class from DCU)
-		String received = "30:20:10";
+		//received = "30:20:10";
 		String[] split = received.split(":", 3);   //"." is the character at which the string will split. 
 		String temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
 		String fire = split[1];
@@ -29,7 +30,7 @@ public class DataAnalysis extends Receiver {
 
 	public String SplitStringSmoke() {
 		//String received = Receiver.(whatever is received in receiver class from DCU)
-		String received = "30:20:10";
+		//received = "30:20:10";
 		String[] split = received.split(":", 3);   //"." is the character at which the string will split. 
 		String temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
 		String fire = split[1];

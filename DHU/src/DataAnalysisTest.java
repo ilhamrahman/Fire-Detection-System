@@ -4,17 +4,28 @@ import org.junit.Test;
 
 public class DataAnalysisTest {
 
-	//@Test
-	//public void testSplitString() {
-		//Stub s = new Stub();
-		//DataAnalysis da = new DataAnalysis();
-		//assertTrue(da.SplitString().equals("10"));
-	//}
+	Stub s = new Stub();
+	DataAnalysis d = new DataAnalysis();
+	
+	@Test
+	public void testSplitStringTemp() throws Exception {
+		assertTrue(d.SplitStringTemp().equals("60"));
+	}
+	
+	@Test
+	public void testSplitStringFlame() throws Exception {
+		assertTrue(d.SplitStringFire().equals("20"));
+	}
 
+	@Test
+	public void testSplitStringSmoke() throws Exception {
+		assertTrue(d.SplitStringSmoke().equals("10"));
+	}
+	
 	@Test
 	public void testGetTemp() {
 		DataAnalysis da = new DataAnalysis();
-		assertTrue(da.getTemp() == 30);
+		assertTrue(da.getTemp() == 60);
 	}
 
 	@Test
