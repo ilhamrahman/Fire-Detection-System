@@ -1,20 +1,13 @@
 
 public class Stub extends DataAnalysis {
 	String received = "30.20.10";
-	
 	//@override
-	public String SplitStringTemp() {
+	public String SplitString(String received) {
 		
-		return "30";
-	}
-	public String SplitStringFire() {
-		return "20";
-	}
-	public String SplitStringSmoke() {
-		return "10";
+		return temp;
 	}
 	public float getTemp() {
-		return 30;
+		return 40;
 	}
 	public boolean temperature() {
 		if(getTemp() > 50) {
