@@ -25,48 +25,37 @@ public class DataCollectionClass{
 		return openPort;
 	}
 	
-	public String getValue(){
+	public void getValue(){
 		status = data.hasNext();
 		while(status) {
 			Data = data.nextLine();
 			break;
-			//Float Temp = Float.valueOf(temp);
-			//Temp = (float) ((5.0 * Temp * 100.0)/1024.0);
-			//data.close();
 		}
-		return Data;
 	}
 	
-	public String ReturnTemp() {
-		//Data = "30:20:10";
+	public void SplitData() {
 		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
 		Temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
 		Flame = split[1];
 		Smoke = split[2];
-		//System.out.println("temp: " + smoke);
-		return Temp;
 	}
 	
-	public String ReturnFlame() {
-		//Data = "30:20:10";
-		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
-		Temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
-		Flame = split[1];
-		Smoke = split[2];
-		//System.out.println("temp: " + smoke);
-		return Flame;
+	public float ReturnTemp() {
+		float temp = Float.parseFloat(Temp);
+		return temp;
 	}
 	
-	public String ReturnSmoke() {
-		//Data = "30:20:10";
-		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
-		Temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
-		Flame = split[1];
-		Smoke = split[2];
-		//System.out.println("temp: " + smoke);
-		return Smoke;
+	public boolean ReturnFlame() {
+		boolean flame = "1".equals(Flame);
+		return flame;
 	}
 	
+	public float ReturnSmoke() {
+		float smoke = Float.parseFloat(Smoke);
+		return smoke;
+	}
+	
+	/**
 	public float GetTempVal() {
 		temp = Float.parseFloat(Temp);
 		temp = (float) ((5.0 * temp * 100.0)/1024.0); 
@@ -77,6 +66,8 @@ public class DataCollectionClass{
 		smoke = Float.parseFloat(Smoke);
 		smoke = (float) ((5.0 * temp * 100.0)/1024.0); //change
 		return smoke;
+		
 	}
+	*/
 	
 }

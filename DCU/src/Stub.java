@@ -5,6 +5,7 @@ public class Stub extends DataCollectionClass {
 		return true;
 	}
 	
+	/**
 	public String getValue(){
 		status = true;
 		if (status == false){
@@ -14,8 +15,9 @@ public class Stub extends DataCollectionClass {
 			Data = "aaaa";
 		return Data;
 	}
+	*/
 	
-	public String ReturnTemp() {
+	public float ReturnTemp() {
 		
 		Data = "30:20:10";
 		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
@@ -23,7 +25,7 @@ public class Stub extends DataCollectionClass {
 		//System.out.println("temp: " + smoke);
 		return Temp;
 	}
-	public String ReturnFlame() {
+	public boolean ReturnFlame() {
 		
 		Data = "30:20:10";
 		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
@@ -31,7 +33,7 @@ public class Stub extends DataCollectionClass {
 		//System.out.println("temp: " + smoke);
 		return Flame;
 	}
-public String ReturnSmoke() {
+public float ReturnSmoke() {
 		
 		Data = "30:20:10";
 		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
