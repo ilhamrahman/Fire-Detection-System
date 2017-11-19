@@ -1,6 +1,6 @@
 
 public class Stub extends DataAnalysis {
-	String received = "30.20.10";
+	//String received = "30:1:1";
 	//@override
 	public String SplitString(String received) {
 		
@@ -35,7 +35,7 @@ public class Stub extends DataAnalysis {
 	public float getTemp() {
 		return 60;
 	}
-	public boolean temperature() {
+	public boolean tempHigh() {
 		if(getTemp() > 50) {
 			return true;
 		}

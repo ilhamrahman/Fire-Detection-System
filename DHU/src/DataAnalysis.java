@@ -5,7 +5,7 @@ public class DataAnalysis extends Receiver {
 	public String smoke;
 	static final int tempThreshold = 50;
 	public float tempValue;
-	public String received = "60:20:10";
+	public String received;
 	
 	public String SplitStringTemp() {
 		//String received = Receiver.(whatever is received in receiver class from DCU)
@@ -44,15 +44,25 @@ public class DataAnalysis extends Receiver {
 		//this.tempValue = tempValue;
 		return tempValue;  //Is this the actual temperature value or the voltage value?
 	}
-	public float getFire() {
-		float fireValue = Float.parseFloat(this.SplitStringFire());
-		return fireValue;   //Voltage value through flame sensor
+	public Boolean getFire() {
+		int fireValue = Integer.parseInt(this.SplitStringFire());
+		if(fireValue==1) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
-	public float getSmoke() {
-		float smokeValue = Float.parseFloat(SplitStringSmoke());
-		return smokeValue;
+	public Boolean getSmoke() {
+		int smokeValue = Integer.parseInt(this.SplitStringFire());
+		if(smokeValue == 1) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
-	public boolean temperature() {
+	public boolean tempHigh() {
 		if(this.getTemp() > tempThreshold) {
 			return true;
 		}
