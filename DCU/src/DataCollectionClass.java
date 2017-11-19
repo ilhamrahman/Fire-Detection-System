@@ -1,8 +1,5 @@
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-
-import com.fazecast.jSerialComm.*;
-
 import com.fazecast.jSerialComm.SerialPort;
 
 public class DataCollectionClass{
