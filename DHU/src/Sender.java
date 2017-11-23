@@ -4,20 +4,20 @@ import org.json.*;
 import java.util.concurrent.TimeUnit;
 public class Sender extends Receiver {
 	
-public static String tempMessage() {
+public String tempMessage() {
 		
 		DataAnalysis d = new DataAnalysis();
 		String TempLow = "RELAX! The current temperature is below the dangerous threshold temperature.";
 		String TempHigh = "DANGER! The current temperature is above the dangerous threshold temperature.";
 		
-		if (d.tempHigh() == true){
+		if (d.isTempHigh() == true){
 			return TempHigh; 
 		}
 		else {
 			return TempLow;
 		}
 	}
-	public static String fireMessage() {
+	public String fireMessage() {
 		DataAnalysis d = new DataAnalysis();
 		
 		String noFire = "RELAX! There is no danger of fire in your house.";
@@ -31,7 +31,7 @@ public static String tempMessage() {
 		}
 	}
 	
-	public static String smokeMessage() {
+	public String smokeMessage() {
 		
 		DataAnalysis d = new DataAnalysis();
 		String noSmoke = "RELAX! There is no danger of smoke in your house.";
@@ -44,7 +44,7 @@ public static String tempMessage() {
 			return noSmoke;
 		}
 	}
-	public void send(int port) 
+	public JSONObject send(float Temp, String tempMessage, String fireMessage, String smokeMessage) throws JSONException 
 	   {	 // boolean firestatus = false;
 	   		  //Integer temperature;
 	   		  //Integer pressure;
@@ -57,13 +57,13 @@ public static String tempMessage() {
 		        // System.out.println( "usage: java UDPSender host port" ) ;
 		         //return ;
 		      //}
-		      DatagramSocket socket = null ;
-		      try
-		      {
+		   
+		     // try
+		    //  {
 		         // Convert the arguments first, to ensure that they are valid
 		         //InetAddress host = InetAddress.getByName(args[0]) ;  
 		        // int port         = Integer.parseInt( args[1] ) ;
-		         socket = new DatagramSocket() ;
+		         
 	     
 		         //Scanner in;
 		         //in = new Scanner (System.in);
@@ -88,25 +88,29 @@ public static String tempMessage() {
 		        	     System.out.println("Sending the analyzed data from the Data Handling Unit to the Android Application... ");
 		        	     
 		        	     DataAnalysis da = new DataAnalysis();
-		        	     float tempV = da.getTemp();
+		        	     //float tempV = da.getTemp();
 
-		        	     params.put("Current Temperature Value: ", tempV);
-		        		 params.put("Temperature Status: ", tempMessage());
-		        		 params.put("Fire Status: ", fireMessage());
-		        		 params.put("Smoke Status: ", smokeMessage());
+		        	     params.put("Current Temperature Value: ", Temp);
+		        		 params.put("Temperature Status: ", tempMessage);
+		        		 params.put("Fire Status: ", fireMessage);
+		        		 params.put("Smoke Status: ", smokeMessage);
 		        		 
-		        		 byte [] data = params.toString().getBytes();
+		        		 
+		        		 return params;  
+		        		 
+		        		 /*byte [] data = params.toString().getBytes();
 		        		 DatagramPacket packet = new DatagramPacket(data , data.length, host, port ) ;
 		        		 TimeUnit.SECONDS.sleep(3);
-		        		 socket.send( packet ) ;
+		        		 socket.send( packet ) ;*/
 		        		 
 		        		// System.out.println("Press ENTER to exit");
 		        		 //message = in.nextLine();
 		        		 //if (message.length()==0) break;
 		         } 
+		         
 		         //System.out.println ("Closing down");
-		      }
-		      catch( Exception e )
+		      //}
+		      /*catch( Exception e )
 		      {
 		         System.out.println( e ) ;
 		      }
@@ -114,7 +118,8 @@ public static String tempMessage() {
 		      {
 		         if( socket != null )
 		            socket.close() ;
-	      }
+	      }*/
+		        
 	   }
 	/*
 	public static void main(String[] args) 

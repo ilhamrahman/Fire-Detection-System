@@ -37,8 +37,8 @@ public class DataAnalysisTest {
 	}
 
 	@Test
-	public void testTempHigh() {
-		assertTrue(s.tempHigh());
+	public void testisTempHigh() {
+		assertTrue(s.isTempHigh());
 	}
 
 }

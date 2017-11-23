@@ -62,7 +62,7 @@ public class DataAnalysis extends Receiver {
 			return true;
 		}
 	}
-	public boolean tempHigh() {
+	public boolean isTempHigh() {
 		if(this.getTemp() > tempThreshold) {
 			return true;
 		}

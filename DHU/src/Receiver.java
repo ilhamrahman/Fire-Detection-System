@@ -7,24 +7,29 @@ import java.util.Arrays;
 
 public class Receiver {
 	private final static int PACKETSIZE = 100 ;
-	static InetAddress host;
 
 	public static void main( String args[] )
 	{ 
 	      // Check the arguments
-	      if( args.length != 1 )
+	      if( args.length != 2 )
 	      {
 	         System.out.println( "usage: UDPReceiver port" ) ;
 	         return ;
 	      }
+	      
+	      DatagramSocket socket = null ;
+	      Sender sender = new Sender();
+	      DataAnalysis data = new DataAnalysis();
+	      
 	      try
 	      {
 	         // Convert the argument to ensure that is it valid
-	         int port = Integer.parseInt( args[0] ) ;
-	         host = InetAddress.getByName( args[1] ) ;
+	         int port = Integer.parseInt( args[1] ) ;
+	         InetAddress host = InetAddress.getByName( args[0] ) ;
+	         socket = new DatagramSocket() ;
 
 	         // Construct the socket
-	         DatagramSocket socket = new DatagramSocket( port ) ;
+	         //DatagramSocket socket = new DatagramSocket( port ) ;
 	         
 	         for( ;; )
 	         {
@@ -32,9 +37,14 @@ public class Receiver {
 		        DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
 	            socket.receive( packet ) ;
 	          
+	            
+	            float temp = data.getTemp();
+	            String tempMessage = sender.tempMessage();
+	            String fireMessage = sender.fireMessage();
+	            String smokeMessage = sender.smokeMessage();
 	 
 	          System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim() ) ;
-	          new Sender().send(port);
+	          new Sender().send(temp, tempMessage, fireMessage, smokeMessage);
 	         
 	         }
 	         

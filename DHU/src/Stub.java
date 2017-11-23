@@ -35,7 +35,7 @@ public class Stub extends DataAnalysis {
 	public float getTemp() {
 		return 60;
 	}
-	public boolean tempHigh() {
+	public boolean isTempHigh() {
 		if(getTemp() > 50) {
 			return true;
 		}
