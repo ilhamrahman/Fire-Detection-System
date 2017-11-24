@@ -73,7 +73,7 @@ public class DataAnalysis extends Receiver {
 	public double gasRatio() {
 		float smokeValue = Float.parseFloat(this.SplitStringSmoke());
 		double gasRs = (5.0-smokeValue)/smokeValue;   //Sensing Resistance for the gas detected
-		double Ro = 0.33;
+		double Ro = 1.74;
 		double ratio = gasRs / Ro;
 		return ratio;
 	}
