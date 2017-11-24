@@ -1,5 +1,4 @@
-
-public class DataAnalysis extends Receiver {
+public class DataAnalysis {
 	public String temp;
 	public String fire;
 	public String smoke;
@@ -7,45 +6,36 @@ public class DataAnalysis extends Receiver {
 	public float tempValue;
 	public String received;
 	
-	public String SplitStringTemp() {
-		//String received = Receiver.(whatever is received in receiver class from DCU)
-		//received = "30:20:10";
+	public DataAnalysis(String received) {
+		this.received = received;
+		splitString();
+	}
+	
+	public void splitString() {
 		String[] split = received.split(":", 3);   //"." is the character at which the string will split. 
-		String temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
-		String fire = split[1];
-		String smoke = split[2];
-		//System.out.println("temp: " + smoke);
+		temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
+		fire = split[1];
+		smoke = split[2];
+	}
+	
+	public String getStringTemp() {
 		return temp;
 	}
-	public String SplitStringFire() {
-		//String received = Receiver.(whatever is received in receiver class from DCU)
-		//received = "30:20:10";
-		String[] split = received.split(":", 3);   //"." is the character at which the string will split. 
-		String temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
-		String fire = split[1];
-		String smoke = split[2];
-		//System.out.println("temp: " + smoke);
+	public String getStringFire() {
 		return fire;
 	}
 
-	public String SplitStringSmoke() {
-		//String received = Receiver.(whatever is received in receiver class from DCU)
-		//received = "30:20:10";
-		String[] split = received.split(":", 3);   //"." is the character at which the string will split. 
-		String temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
-		String fire = split[1];
-		String smoke = split[2];
-		//System.out.println("temp: " + smoke);
+	public String getStringSmoke() {
 		return smoke;
 	}
 	
 	public float getTemp(){
-		float tempValue = Float.parseFloat(this.SplitStringTemp());
+		float tempValue = Float.parseFloat(this.getStringTemp());
 		//this.tempValue = tempValue;
 		return tempValue;  //Is this the actual temperature value or the voltage value?
 	}
 	public Boolean isFireDetected() {
-		int fireValue = Integer.parseInt(this.SplitStringFire());
+		int fireValue = Integer.parseInt(this.getStringFire());
 		if(fireValue==1) {
 			return false;
 		}
@@ -71,7 +61,7 @@ public class DataAnalysis extends Receiver {
 		}
 	}
 	public double gasRatio() {
-		float smokeValue = Float.parseFloat(this.SplitStringSmoke());
+		float smokeValue = Float.parseFloat(this.getStringSmoke());
 		double gasRs = (5.0-smokeValue)/smokeValue;   //Sensing Resistance for the gas detected
 		double Ro = 1.74;
 		double ratio = gasRs / Ro;

@@ -9,7 +9,7 @@ public class Receiver {
 	private final static int PACKETSIZE = 100 ;
 
 	public static void main( String args[] )
-	{ 
+	{
 	      // Check the arguments
 	      if( args.length != 2 )
 	      {
@@ -18,33 +18,32 @@ public class Receiver {
 	      }
 	      
 	      DatagramSocket socket = null ;
-	      Sender sender = new Sender();
-	      DataAnalysis data = new DataAnalysis();
 	      
 	      try
 	      {
 	         // Convert the argument to ensure that is it valid
 	         int port = Integer.parseInt( args[1] ) ;
 	         InetAddress host = InetAddress.getByName( args[0] ) ;
-	         socket = new DatagramSocket() ;
+	         socket = new DatagramSocket(port) ;
 
 	         // Construct the socket
 	         //DatagramSocket socket = new DatagramSocket( port ) ;
 	         
 	         for( ;; )
 	         {
-		        System.out.println( "Receiving on port " + port ) ;
-		        DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
-	            socket.receive( packet ) ;
+		         DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
+	             socket.receive( packet ) ;
+	             String DataReceived = new String(packet.getData()).trim();
+	             DataAnalysis data = new DataAnalysis(DataReceived);
+	             
+	             Sender sender = new Sender();   
+	             float temp = data.getTemp();
+	             String tempMessage = sender.tempMessage(data.isTempHigh());
+	             String fireMessage = sender.fireMessage(data.isFireDetected());
+	             String smokeMessage = sender.smokeMessage(data.isSmokeDetected());
+	  
 	          
-	            
-	            float temp = data.getTemp();
-	            String tempMessage = sender.tempMessage();
-	            String fireMessage = sender.fireMessage();
-	            String smokeMessage = sender.smokeMessage();
-	 
-	          System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim() ) ;
-	          new Sender().send(temp, tempMessage, fireMessage, smokeMessage);
+	             sender.send(temp, tempMessage, fireMessage, smokeMessage);
 	         
 	         }
 	         
