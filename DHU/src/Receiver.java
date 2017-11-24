@@ -26,7 +26,7 @@ public class Receiver {
 	         // Convert the argument to ensure that is it valid
 	         int port = Integer.parseInt( args[1] ) ;
 	         InetAddress host = InetAddress.getByName( args[0] ) ;
-	         socket = new DatagramSocket() ;
+	         socket = new DatagramSocket(port) ;
 
 	         // Construct the socket
 	         //DatagramSocket socket = new DatagramSocket( port ) ;
