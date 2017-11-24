@@ -8,6 +8,7 @@ Brian Ranjan, Illham Rahman, Raj Waidyaratna)*
 The Temperature Sensor used on this project is the LM35 Temperature Sensor that comes default with the Kuman kit for the
 Arduino Uno. This Sensor is an Analog Sensor that outputs it's value in millivolts. It is converted to Degrees Celcius
 by following the formula; (5.0 * Reading_in_Millivolts * 100.0) * 1023.0 this was taken directly from the LM35 Datasheet.
+The Arduino's Analog Pin 0 will be used. 
 
 The Three Pins of the LM35 are as follows: 
 
