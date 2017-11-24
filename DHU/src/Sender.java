@@ -23,7 +23,7 @@ public String tempMessage() {
 		String noFire = "RELAX! There is no danger of fire in your house.";
 		String yesFire = "DANGER! Fire was detected in your house!";
 		
-		if (d.getFire() == true){  //if value received is 0, fire is detected
+		if (d.isFireDetected() == true){  //if value received is 0, fire is detected
 			return yesFire;
 		}
 		else {
@@ -37,7 +37,7 @@ public String tempMessage() {
 		String noSmoke = "RELAX! There is no danger of smoke in your house.";
 		String yesSmoke = "DANGER! Smoke was detected in your house!";
 		
-		if (d.getSmoke() == true){
+		if (d.isSmokeDetected() == true){
 			return yesSmoke;
 		}
 		else {
