@@ -44,7 +44,7 @@ public class DataAnalysis extends Receiver {
 		//this.tempValue = tempValue;
 		return tempValue;  //Is this the actual temperature value or the voltage value?
 	}
-	public Boolean getFire() {
+	public Boolean isFireDetected() {
 		int fireValue = Integer.parseInt(this.SplitStringFire());
 		if(fireValue==1) {
 			return false;
@@ -53,13 +53,13 @@ public class DataAnalysis extends Receiver {
 			return true;
 		}
 	}
-	public Boolean getSmoke() {
-		int smokeValue = Integer.parseInt(this.SplitStringFire());
-		if(smokeValue == 1) {
-			return false;
+	public Boolean isSmokeDetected() {
+		//float smokeValue = Float.parseFloat(this.SplitStringSmoke());
+		if(gasRatio() < 6.5) {
+			return true;
 		}
 		else {
-			return true;
+			return false;
 		}
 	}
 	public boolean isTempHigh() {
@@ -69,6 +69,13 @@ public class DataAnalysis extends Receiver {
 		else {
 			return false;
 		}
+	}
+	public double gasRatio() {
+		float smokeValue = Float.parseFloat(this.SplitStringSmoke());
+		double gasRs = (5.0-smokeValue)/smokeValue;   //Sensing Resistance for the gas detected
+		double Ro = 0.33;
+		double ratio = gasRs / Ro;
+		return ratio;
 	}
 	
 }
