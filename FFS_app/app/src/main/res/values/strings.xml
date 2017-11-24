@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FFS_app</string>
+    <string name="fire_status" translatable="false">Fire Status</string>
+    <string name="smoke_status" translatable="false">Smoke Status</string>
+    <string name="Temperature" translatable="false">Temperature</string>
+    <string name="title_activity_smoke">SmokeActivity</string>
+</resources>
