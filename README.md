@@ -6,8 +6,8 @@ This README file is for the Flareon Flame System put together for the SYSC 3010 
 ###### LM35 Temperature Sensor
 ###### MQ5 Smoke Sensor
 ###### 
-##Raspberry Pi1: Data Collection Unit (DCU)
+## Raspberry Pi1: Data Collection Unit (DCU)
 
-##Raspberry Pi1: Data Collection Unit (DHU)
+## Raspberry Pi1: Data Collection Unit (DHU)
 
-##Android Application
+## Android Application
