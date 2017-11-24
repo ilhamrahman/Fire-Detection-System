@@ -32,6 +32,10 @@ void loop()                     // run over and over again
  float temp = (5.0 * tempReading * 100.0)/1023.0; 
 
  float smoke = analogRead(2);
+
+ //converting smoke sensor reading to voltage
+ float smoke = (float) smoke/1024*5.0;
+ 
  int fire = digitalRead(5);
 
  if(fire == 0){

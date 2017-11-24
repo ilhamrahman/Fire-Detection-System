@@ -7,34 +7,43 @@ import java.util.Arrays;
 
 public class Receiver {
 	private final static int PACKETSIZE = 100 ;
-	static InetAddress host;
 
 	public static void main( String args[] )
-	{ 
+	{
 	      // Check the arguments
-	      if( args.length != 1 )
+	      if( args.length != 2 )
 	      {
 	         System.out.println( "usage: UDPReceiver port" ) ;
 	         return ;
 	      }
+	      
+	      DatagramSocket socket = null ;
+	      
 	      try
 	      {
 	         // Convert the argument to ensure that is it valid
-	         int port = Integer.parseInt( args[0] ) ;
-	         host = InetAddress.getByName( args[1] ) ;
+	         int port = Integer.parseInt( args[1] ) ;
+	         InetAddress host = InetAddress.getByName( args[0] ) ;
+	         socket = new DatagramSocket(port) ;
 
 	         // Construct the socket
-	         DatagramSocket socket = new DatagramSocket( port ) ;
+	         //DatagramSocket socket = new DatagramSocket( port ) ;
 	         
 	         for( ;; )
 	         {
-		        System.out.println( "Receiving on port " + port ) ;
-		        DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
-	            socket.receive( packet ) ;
+		         DatagramPacket packet = new DatagramPacket( new byte[PACKETSIZE], PACKETSIZE ) ;
+	             socket.receive( packet ) ;
+	             String DataReceived = new String(packet.getData()).trim();
+	             DataAnalysis data = new DataAnalysis(DataReceived);
+	             
+	             Sender sender = new Sender();   
+	             float temp = data.getTemp();
+	             String tempMessage = sender.tempMessage(data.isTempHigh());
+	             String fireMessage = sender.fireMessage(data.isFireDetected());
+	             String smokeMessage = sender.smokeMessage(data.isSmokeDetected());
+	  
 	          
-	 
-	          System.out.println( packet.getAddress() + " " + packet.getPort() + ": " + new String(packet.getData()).trim() ) ;
-	          new Sender().send(port);
+	             sender.send(temp, tempMessage, fireMessage, smokeMessage);
 	         
 	         }
 	         

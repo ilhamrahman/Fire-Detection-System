@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 import com.fazecast.jSerialComm.SerialPort;
 
 public class DataCollectionClass{
@@ -33,7 +32,14 @@ public class DataCollectionClass{
 		}
 	}
 	
+	public String getData() {
+		return Data;
+	}
+	
 	public void SplitData() {
+		//StringBuilder sb = new StringBuilder(Data);
+		//sb.deleteCharAt(0);
+		//sb.deleteCharAt(13);
 		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
 		Temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
 		Flame = split[1];
@@ -55,6 +61,14 @@ public class DataCollectionClass{
 		return smoke;
 	}
 	
+	
+	public boolean CheckData() {
+		if(Data.length() > 10) {
+			return true;
+		}
+		return false;
+		
+	}
 	/**
 	public float GetTempVal() {
 		temp = Float.parseFloat(Temp);

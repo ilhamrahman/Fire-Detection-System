@@ -27,18 +27,18 @@ public class DataAnalysisTest {
 	}
 
 	@Test
-	public void testGetFire() {
-		assertTrue(s.getFire().equals(true));
+	public void testisFireDetected() {
+		assertTrue(s.isFireDetected().equals(true));
 	}
 
 	@Test
-	public void testGetSmoke() {
-		assertTrue(s.getSmoke().equals(true));
+	public void testisSmokeDetected() {
+		assertTrue(s.isSmokeDetected().equals(true));
 	}
 
 	@Test
-	public void testTempHigh() {
-		assertTrue(s.tempHigh());
+	public void testisTempHigh() {
+		assertTrue(s.isTempHigh());
 	}
 
 }
