@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class DataAnalysisTest {
 
-	Stub s = new Stub();
+	Stub s = new Stub("30:20:10");
 	
 	@Test
 	public void testSplitStringTemp() throws Exception {

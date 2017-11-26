@@ -21,11 +21,11 @@ public String tempMessage(boolean isTempHigh) {
 		String noFire = "RELAX! There is no danger of fire in your house.";
 		String yesFire = "DANGER! Fire was detected in your house!";
 		
-		if (isFireDetected){  //if value received is 0, fire is detected
-			return yesFire;
+		if (isFireDetected){  //if fire is detected
+			return yesFire;   //send warning message
 		}
 		else {
-			return noFire;
+			return noFire;  //otherwise send relax message
 		}
 	}
 	
@@ -33,23 +33,23 @@ public String tempMessage(boolean isTempHigh) {
 		String noSmoke = "RELAX! There is no danger of smoke in your house.";
 		String yesSmoke = "DANGER! Smoke was detected in your house!";
 		
-		if (isSmokeDetected){
-			return yesSmoke;
+		if (isSmokeDetected){ //if smoke is detected
+			return yesSmoke;  //send warning message
 		}
 		else {
-			return noSmoke;
+			return noSmoke;   //otherwise send relax message
 		}
 	}
 	public JSONObject send(float Temp, String tempMessage, String fireMessage, String smokeMessage) throws JSONException {
 		
-	    JSONObject params = new JSONObject();
+	    JSONObject params = new JSONObject();   //initialize JSONObject data to be sent
 	    System.out.println("Sending the analyzed data from the Data Handling Unit to the Android Application... ");
 
-	    params.put("Current Temperature Value: ", Temp);
-	    params.put("Temperature Status: ", tempMessage);
-	    params.put("Fire Status: ", fireMessage);
-	    params.put("Smoke Status: ", smokeMessage); 
-	    return params;  
+	    params.put("Current Temperature Value: ", Temp);   //add current temperature value on data to be sent 
+	    params.put("Temperature Status: ", tempMessage);   //let the app know if the temperature is higher or lower than threshold
+	    params.put("Fire Status: ", fireMessage);   //add fire status on data to be sent 
+	    params.put("Smoke Status: ", smokeMessage);  //add smoke status on data to be sent
+	    return params;     //return data that is to be sent to the android application
 	}
 	
 }
