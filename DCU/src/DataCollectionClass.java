@@ -3,8 +3,8 @@ import com.fazecast.jSerialComm.SerialPort;
 
 public class DataCollectionClass{
 	private boolean openPort;
-	SerialPort ArPort = SerialPort.getCommPort("COM4");
-	//Opens a SerialPort named "ArPort" that will capture Data being sent on the specified port Name
+	SerialPort ArPort = SerialPort.getCommPort("ACM1");
+	//Initialises a SerialPort named "ArPort" that will capture Data being sent on the specified port Name
 	
 	protected String Data;
 	protected String Temp;
@@ -37,10 +37,8 @@ public class DataCollectionClass{
 	}
 	
 	public void SplitData() {
-		//StringBuilder sb = new StringBuilder(Data);
-		//sb.deleteCharAt(0);
-		//sb.deleteCharAt(13);
-		String[] split = Data.split(":", 3);   //"." is the character at which the string will split. 
+		
+		String[] split = Data.split(":", 3);   //":" is the character at which the string will split. 
 		Temp = split[0];  //So, there must be 2 full stops to split the string into 3 parts.
 		Flame = split[1];
 		Smoke = split[2];
