@@ -26,14 +26,14 @@ sqlite>
 public class database {
 
 
-	 public Connection connect() {
+	 public Connection connect() throws SQLException {
 		 Connection conn = null;
 		 String url = "jdbc:sqlite:M://sql/Database.db";//path to db file
-	        try {  
+	        
 	            conn = DriverManager.getConnection(url);  		//from imports. creates a connection to the DHU	            
-	        } catch (SQLException e) {
+	       /* } catch (SQLException e) {
 	        	System.out.println(e.getMessage());				//else if it is null catches it and prints a string of this throwable
-	        }
+	        }*/
 	        return conn;
 	    }
 	 
@@ -71,11 +71,11 @@ public class database {
 	        database x = new database();
 	        // insert row
 	        float a = (float) 1;
-	        float b = (float) 69;
+	        float b = (float) 12;
 	        float c = (float) 96;
 	        x.insert(a, true, false);
 	        x.insert(b, true, true);
-	        x.insert(c, false , false);
+	        x.insert(c, false , true);
 	    }
 	
 }
