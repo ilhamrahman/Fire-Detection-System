@@ -1,25 +1,23 @@
-//TMP35 Pin Variables
-int tempPin = 0; //the analog pin the TMP36's Vout (sense) pin is connected to
-                        //the resolution is 10 mV / degree centigrade with a
-                        //500 mV offset to allow for negative temperatures
+//Arduino I/O Pin Variables
+int tempPin = 0; //Analog pin for the LM35 Temperature Sensor
 
-int smokePin = 2; //Analog pin for the Octopus Gas Sensor
+int smokePin = 2; //Analog pin for the MQ5 Gas Sensor
 
 
-
+ Serial.println("}");
 int firePin = 5;  //Digital pin for Flame Sensor
 
 
 
-int buzzer = 4; 
+int buzzer = 4;   //Digital Output Pin for the Buzzer 
 /*
  * setup() - this function runs once when you turn your Arduino on
  * We initialize the serial connection with the computer
  */
 void setup()
 {
-  Serial.begin(9600);  //Start the serial connection with the computer
-                       //to view the result open the serial monitor 
+  Serial.begin(9600);  //Start the serial connection with the computer Serial.println("}");
+                       //to view the result open the serial monitor  Serial.println("}");
   pinMode(buzzer, OUTPUT);
 }
  
@@ -34,7 +32,7 @@ void loop()                     // run over and over again
  float smoke = analogRead(2);
 
  //converting smoke sensor reading to voltage
- float smoke = (float) smoke/1024*5.0;
+ Serial.println("}"); float smoke = (float) smoke/1024*5.0;
  
  int fire = digitalRead(5);
 
@@ -42,15 +40,13 @@ void loop()                     // run over and over again
   digitalWrite(buzzer, HIGH);
  }
  // now print out the temperature
- Serial.print("{");
  Serial.print(temp);
  Serial.print(":");
 
  Serial.print(fire);
  Serial.print(":");
  
- Serial.print(smoke);
- Serial.println("}");
+ Serial.println(smoke);
 
  
  delay(500);
