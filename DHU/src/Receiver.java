@@ -35,6 +35,10 @@ public class Receiver {
 	             socket.receive( packet ) ;     //receive data
 	             String DataReceived = new String(packet.getData()).trim();   //string of data received
 	             DataAnalysis data = new DataAnalysis(DataReceived);     //call DataAnalysis constructor to split the string of data into 3 parts 
+	             Database db = new Database();
+	             
+	             //insert received data into database
+	             db.insert(data.getTemp(), data.isFireDetected(), data.isSmokeDetected());
 	             
 	             Sender sender = new Sender();     //initialize sender
 	             float temp = data.getTemp();  //current temperature value
