@@ -30,7 +30,7 @@ The Three Pins of the LM35 are as follows:
 ###### [Receiver](https://github.com/ilhamrahman/F5/blob/master/DHU/src/Receiver.java)
 ###### [Data Analysis Class](https://github.com/ilhamrahman/F5/blob/master/DHU/src/DataAnalysis.java)
 ###### [Sender](https://github.com/ilhamrahman/F5/blob/master/DHU/src/Sender.java)
-###### [Database](https://github.com/ilhamrahman/F5/blob/master/Database2/src/database.java)
+###### [Database](https://github.com/ilhamrahman/F5/blob/master/Database/src/database.java)
 
 ## Android Application
 ###### [FFS_APP](https://github.com/ilhamrahman/F5/tree/master/FFS_app)
