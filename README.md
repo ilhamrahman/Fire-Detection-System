@@ -26,7 +26,7 @@ The Three Pins of the LM35 are as follows:
 ###### [Data Collection Class](https://github.com/ilhamrahman/F5/blob/master/DCU/src/DataCollectionClass.java)
 ###### [Sender](https://github.com/ilhamrahman/F5/blob/master/DCU/src/Sender.java)
 
-## Raspberry Pi1: Data Collection Unit (DHU)
+## Raspberry Pi2: Data Handling Unit (DHU)
 ###### [Receiver](https://github.com/ilhamrahman/F5/blob/master/DHU/src/Receiver.java)
 ###### [Data Analysis Class](https://github.com/ilhamrahman/F5/blob/master/DHU/src/DataAnalysis.java)
 ###### [Sender](https://github.com/ilhamrahman/F5/blob/master/DHU/src/Sender.java)
