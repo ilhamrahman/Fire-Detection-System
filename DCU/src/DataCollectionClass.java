@@ -4,7 +4,7 @@ import com.fazecast.jSerialComm.SerialPort;
 public class DataCollectionClass{
 	private boolean openPort;
 	SerialPort ArPort = SerialPort.getCommPort("COM4");
-	//SerialPortEvent Event = new SerialPortEvent(ArPort, 1);
+	//Opens a SerialPort named "ArPort" that will capture Data being sent on the specified port Name
 	
 	protected String Data;
 	protected String Temp;
