@@ -23,10 +23,10 @@ void setup()
  
 void loop()                     // run over and over again
 {
- //getting the voltage reading from the temperature sensor
+ //getting the voltage reading from the temperature sensor bigger than needed delay is set so that the 500 millisecond delay will stay consistent. 
  float tempReading = analogRead(tempPin);  
  
- // converting that reading to voltage, for 3.3v arduino use 3.3
+ // converting that reading to voltage, for 3.3v arduino use 3.3 bigger than needed delay is set so that the 500 millisecond delay will stay consistent. 
  float temp = (5.0 * tempReading * 100.0)/1023.0; 
 
  float smoke = analogRead(2);
