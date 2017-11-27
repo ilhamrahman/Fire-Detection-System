@@ -1,6 +1,6 @@
 # F5: Third Year Project; SYSC 3010
-This README file is for the Flareon Flame System put together for the SYSC 3010 project created by Group F5*(Shaviyo Marasinghe, 
-Brian Ranjan, Ezwad Rahman, Raj Waidyaratna)*
+This README file is for the Flareon Flame System put together for the SYSC 3010 project created by Group F5
+*(Shaviyo Marasinghe,Brian Ranjan, Ezwad Rahman, Raj Waidyaratna)*
 
 
 ## [Arduino(Kuman) UNO](https://github.com/ilhamrahman/F5/blob/master/Arduino/temperatureArduino.ino)
