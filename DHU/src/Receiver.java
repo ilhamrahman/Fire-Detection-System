@@ -41,13 +41,14 @@ public class Receiver {
 	             db.insert(data.getTemp(), data.isFireDetected(), data.isSmokeDetected());
 	             
 	             Sender sender = new Sender();     //initialize sender
-	             float temp = data.getTemp();  //current temperature value
-	             String tempMessage = sender.tempMessage(data.isTempHigh());   //message for temperature status
-	             String fireMessage = sender.fireMessage(data.isFireDetected());   //message for fire status
-	             String smokeMessage = sender.smokeMessage(data.isSmokeDetected());   //message for smoke status
+	             //float temp = data.getTemp();  //current temperature value
+	             //String tempMessage = sender.tempMessage(data.isTempHigh());   //message for temperature status
+	             //String fireMessage = sender.fireMessage(data.isFireDetected());   //message for fire status
+	             //String smokeMessage = sender.smokeMessage(data.isSmokeDetected());   //message for smoke status
 	  
 	          
-	             sender.send(temp, tempMessage, fireMessage, smokeMessage);     //send the data to the android application
+	             sender.send();     //send the data to the android application
+	            
 	         
 	         }
 	         

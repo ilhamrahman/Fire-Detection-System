@@ -27,7 +27,7 @@ public class Database {
 
 	public Connection connect() {
 		Connection conn = null;
-		String url = "jdbc:sqlite:M:/sql/Database.db";		//path to db file
+		String url = "jdbc:sqlite:M:/SYSC3010/SYSC3010Project/SQL/Database.db";		//path to db file
 	    try {
 	    	conn = DriverManager.getConnection(url);  		//from imports. creates a connection to the DHU	            
 	    } catch (SQLException e) {
@@ -142,10 +142,10 @@ public class Database {
 				}
 		}
 	
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Database x = new Database();												//used to test connection and functionality of the database
         x.retrieveLastEntry();
-    }
+    }*/
 	
 
 }
