@@ -63,23 +63,26 @@ public class Database {
 	            System.out.println(e.getMessage());										//catches any exceptions that is not accounted for (invalid inputs)
 	        }
 	    }
-	public void retrieveLastEntry() {
-		
+	public String retrieveLastEntry() {
+		String s ="";
 		String sql="select * from (select * from DHU_Database order by ID DESC limit 1) order by ID ASC";
 		try (Connection conn = this.connect();
 				Statement st = conn.createStatement();
 				ResultSet r = st.executeQuery(sql)){
 			
-			String s = (r.getInt("ID")+ "\t" +
+			 s = (r.getInt("ID")+ "\t" +
 					r.getFloat("Temperature") + "\t" +
 					r.getInt("Fire") + "\t" + 
 					r.getInt("Smoke") + "\t" +
 					r.getString("Time"));
-			System.out.println(s);
+			//System.out.println(s);
+			
 		} catch (SQLException e) {
 			 //System.out.println(e.getMessage());
 			 System.out.println("error");
 		}
+		
+		return s;
 	}
 
 	
