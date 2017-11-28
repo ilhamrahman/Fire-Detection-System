@@ -142,6 +142,33 @@ public class Database {
 				}
 		}
 	
+		public String getAllEntries() {
+		String s ="";
+		String sql="select * from (select * from DHU_Database) order by ID ASC";
+		try (Connection conn = this.connect();
+				Statement st = conn.createStatement();
+				ResultSet r = st.executeQuery(sql)){
+		
+			while(r.next()) {
+			 s = (r.getInt("ID")+ "\t" +
+					r.getFloat("Temperature") + "\t" +
+					r.getInt("Fire") + "\t" + 
+					r.getInt("Smoke") + "\t" +
+					r.getString("Time"));
+			System.out.println(s);
+			}
+			
+		} catch (SQLException e) {
+			 //System.out.println(e.getMessage());
+			 System.out.println("error");
+		}
+		return s;
+	}
+	/*	public String reOrderDatabase() {
+		DELETE FROM DHU_Database
+		SELECT*FROM DHU_Database;
+	}*/
+	
     /*public static void main(String[] args) {
         Database x = new Database();												//used to test connection and functionality of the database
         x.retrieveLastEntry();
