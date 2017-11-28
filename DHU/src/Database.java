@@ -70,11 +70,12 @@ public class Database {
 				Statement st = conn.createStatement();
 				ResultSet r = st.executeQuery(sql)){
 			
-			System.out.println(r.getInt("ID")+ "\t" +
+			String s = (r.getInt("ID")+ "\t" +
 					r.getFloat("Temperature") + "\t" +
 					r.getInt("Fire") + "\t" + 
 					r.getInt("Smoke") + "\t" +
 					r.getString("Time"));
+			System.out.println(s);
 		} catch (SQLException e) {
 			 //System.out.println(e.getMessage());
 			 System.out.println("error");
