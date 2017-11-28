@@ -1,3 +1,4 @@
+import java.awt.Cursor;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,7 +27,7 @@ public class Database {
 
 	public Connection connect() {
 		Connection conn = null;
-		String url = "jdbc:sqlite:M://sql/Database.db";		//path to db file
+		String url = "jdbc:sqlite:M:/SYSC3010/SYSC3010Project/SQL/Database.db";		//path to db file
 	    try {
 	    	conn = DriverManager.getConnection(url);  		//from imports. creates a connection to the DHU	            
 	    } catch (SQLException e) {
@@ -62,6 +63,20 @@ public class Database {
 	            System.out.println(e.getMessage());										//catches any exceptions that is not accounted for (invalid inputs)
 	        }
 	    }
+	public void retrieveLastEntry() {
+		
+		String sql = "SELECT*FROM DHU_Database ORDER BY ID DESC LIMIT 1";
+		
+		try (Connection conn = this.connect();
+				PreparedStatement ptsd = conn.prepareStatement(sql)){
+			
+			ResultSet r = ptsd.executeQuery(sql);
+			System.out.println(r);
+		} catch (SQLException e) {
+			 //System.out.println(e.getMessage());
+			 System.out.println("error");
+		}
+	}
 	 	
 	
 	public void getFire(boolean Fire){
@@ -119,6 +134,11 @@ public class Database {
 				System.out.println(e.getMessage());										//catches any exceptions
 				}
 		}
+	
+    public static void main(String[] args) {
+        Database x = new Database();												//used to test connection and functionality of the database
+        x.retrieveLastEntry();
+    }
 	
 
 }

@@ -1,4 +1,7 @@
+import java.net.*;
+import java.util.Scanner;
 import org.json.*;
+import java.util.concurrent.TimeUnit;
 public class Sender {
 	
 public String tempMessage(boolean isTempHigh) {
@@ -37,7 +40,7 @@ public String tempMessage(boolean isTempHigh) {
 			return noSmoke;   //otherwise send relax message
 		}
 	}
-	public void send(float Temp, String tempMessage, String fireMessage, String smokeMessage) throws JSONException {
+	public JSONObject send(float Temp, String tempMessage, String fireMessage, String smokeMessage) throws JSONException {
 		
 	    JSONObject params = new JSONObject();   //initialize JSONObject data to be sent
 	    System.out.println("Sending the analyzed data from the Data Handling Unit to the Android Application... ");
@@ -46,7 +49,7 @@ public String tempMessage(boolean isTempHigh) {
 	    params.put("Temperature Status: ", tempMessage);   //let the app know if the temperature is higher or lower than threshold
 	    params.put("Fire Status: ", fireMessage);   //add fire status on data to be sent 
 	    params.put("Smoke Status: ", smokeMessage);  //add smoke status on data to be sent
-	    System.out.println(params);     //return data that is to be sent to the android application
+	    return params;     //return data that is to be sent to the android application
 	}
 	
 }
