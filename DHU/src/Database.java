@@ -1,9 +1,9 @@
-import java.awt.Cursor;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 //SQLite Database created on command prompt. code is as follows
 
@@ -27,7 +27,7 @@ public class Database {
 
 	public Connection connect() {
 		Connection conn = null;
-		String url = "jdbc:sqlite:M:/SYSC3010/SYSC3010Project/SQL/Database.db";		//path to db file
+		String url = "jdbc:sqlite:M:/sql/Database.db";		//path to db file
 	    try {
 	    	conn = DriverManager.getConnection(url);  		//from imports. creates a connection to the DHU	            
 	    } catch (SQLException e) {
@@ -65,19 +65,22 @@ public class Database {
 	    }
 	public void retrieveLastEntry() {
 		
-		String sql = "SELECT*FROM DHU_Database ORDER BY ID DESC LIMIT 1";
-		
+		String sql="select * from (select * from DHU_Database order by ID DESC limit 1) order by ID ASC";
 		try (Connection conn = this.connect();
-				PreparedStatement ptsd = conn.prepareStatement(sql)){
+				Statement st = conn.createStatement();
+				ResultSet r = st.executeQuery(sql)){
 			
-			ResultSet r = ptsd.executeQuery(sql);
-			System.out.println(r);
+			System.out.println(r.getInt("ID")+ "\t" +
+					r.getFloat("Temperature") + "\t" +
+					r.getInt("Fire") + "\t" + 
+					r.getInt("Smoke") + "\t" +
+					r.getString("Time"));
 		} catch (SQLException e) {
 			 //System.out.println(e.getMessage());
 			 System.out.println("error");
 		}
 	}
-	 	
+
 	
 	public void getFire(boolean Fire){
 		int fire;
