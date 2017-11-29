@@ -1,7 +1,6 @@
-import java.net.*;
-import java.util.Scanner;
+
 import org.json.*;
-import java.util.concurrent.TimeUnit;
+
 public class Sender {
 	
 public String tempMessage(boolean isTempHigh) {
