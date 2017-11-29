@@ -38,31 +38,23 @@ public class Database {
 	 
 	public void insert(float Temperature, boolean Fire, boolean Smoke) {
 		int fire, smoke;
+		fire = Fire ? 1:0;									//since DHU unit passes boolean values and the database uses
+		smoke = Smoke ? 1:0;								//integers, this simple loop assigns a 1 if true else assigns false. 
+															//This is for Fire and Smoke values only
 
-		if (Fire == true) {									//since DHU unit passes boolean values and the database uses
-			fire = 1;										//integers, this simple loop assigns a 1 if true else assigns false. 
-		} else {											//This is for Fire and Smoke values only
-		   fire = 0;
-		}
-		
-		if (Smoke == true) {
-			smoke = 1;
-		} else {
-			smoke = 0;
-		   }
-		
 		String sql = "INSERT INTO DHU_Database(Temperature,Fire,Smoke) VALUES(?,?,?)";   //creates a insert method to accept data in
 	 
 	        try (Connection conn = this.connect();
-	            PreparedStatement ptsd = conn.prepareStatement(sql)) {					//Validates connection to put desired string in database
-	            ptsd.setFloat(1, Temperature);											//assigns first entry for Temperature	
-	            ptsd.setInt(2, fire);													//assigns second entry for fire
-	            ptsd.setInt(3, smoke);													//assigns third entry for smoke
-	            ptsd.executeUpdate();													//updates table here
+	            PreparedStatement statement = conn.prepareStatement(sql)) {					//Validates connection to put desired string in database
+	            statement.setFloat(1, Temperature);											//assigns first entry for Temperature	
+	            statement.setInt(2, fire);													//assigns second entry for fire
+	            statement.setInt(3, smoke);													//assigns third entry for smoke
+	            statement.executeUpdate();													//updates table here
 	        } catch (SQLException e) {
 	            System.out.println(e.getMessage());										//catches any exceptions that is not accounted for (invalid inputs)
 	        }
 	    }
+	
 	public String retrieveLastEntry() {
 		String s ="";
 		String sql="select * from (select * from DHU_Database order by ID DESC limit 1) order by ID ASC";

@@ -39,19 +39,10 @@ public class database {
 	    }
 	 
 	public void insert(float Temperature, boolean Fire, boolean Smoke) {
-		int fire, smoke;
-
-		if (Fire == true) {									//since DHU unit passes boolean values and the database uses
-			fire = 1;										//integers, this simple loop assigns a 1 if true else assigns false. 
-		} else {											//This is for Fire and Smoke values only
-		   fire = 0;
-		}
 		
-		if (Smoke == true) {
-			smoke = 1;
-		} else {
-			smoke = 0;
-		   }
+		int fire, smoke;								//since DHU unit passes boolean values and the database uses
+		fire = Fire ? 1:0;								//integers, assigns a 1 if true, assigns a 0 false. 
+		smoke = Smoke ? 1:0;							//This is for Fire and Smoke values only
 		
 		String sql = "INSERT INTO DHU_Database(Temperature,Fire,Smoke) VALUES(?,?,?)";   //creates a insert method to accept data in
 	 
@@ -69,11 +60,7 @@ public class database {
 	
 	public void getFire(boolean Fire){
 		int fire;
-		if (Fire = true) {
-			fire = 0;
-		} else {
-			fire = -1;
-		}
+		fire = Fire ? 1:0;
 		
 		String sql = "SELECT ID, Temperature, Fire, Smoke "								//sql query to select an entry
                        + "FROM DHU_Database WHERE Fire > ?";
