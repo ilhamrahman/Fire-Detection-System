@@ -60,7 +60,7 @@ public class DataAnalysis {
 	
 	public Boolean isSmokeDetected() {
 		try {
-			isSmoke = jsonReceived.getBoolean("Flame");
+			isSmoke = jsonReceived.getBoolean("Smoke");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
