@@ -7,7 +7,7 @@ public class Sender {
 		
 	}
 
-	public JSONObject SendThis(float Temp, boolean Flame, float Smoke) throws JSONException {
+	public JSONObject SendThis(float Temp, boolean Flame, boolean Smoke) throws JSONException {
 		//Get the information that will go through the sender
 		params = new JSONObject();
 		params.put("Temperature", Temp);

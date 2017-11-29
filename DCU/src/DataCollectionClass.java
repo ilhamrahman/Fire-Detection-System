@@ -54,9 +54,13 @@ public class DataCollectionClass{
 		return flame;
 	}
 	
-	public float ReturnSmoke() {
-		float smoke = Float.parseFloat(Smoke);
-		return smoke;
+	public boolean ReturnSmoke() {
+		
+		float smokeValue = Float.parseFloat(Smoke);  //convert string smoke data to a float
+		double gasRs = (5.0-smokeValue)/smokeValue;   //Rs is resistance of sensor when exposed to gasses
+		double Ro = 1.74;  //Ro is resistance of sensor in clean air
+		double ratio = gasRs / Ro;
+		return (ratio<6.3);
 	}
 	
 	

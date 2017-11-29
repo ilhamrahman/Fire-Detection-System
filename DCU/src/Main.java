@@ -37,7 +37,7 @@ public class Main {
 					DataCollection.SplitData();
 					float temp = DataCollection.ReturnTemp();
 					boolean flame = DataCollection.ReturnFlame();
-					float smoke = DataCollection.ReturnSmoke();
+					boolean smoke = DataCollection.ReturnSmoke();
 					//TimeUnit.SECONDS.sleep(1);
 
 					JSONObject params = sender.SendThis(temp, flame, smoke);
