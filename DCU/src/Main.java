@@ -1,7 +1,5 @@
-import java.util.concurrent.TimeUnit;
 import java.io.IOException;
 import java.net.*;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -9,14 +7,6 @@ import org.json.JSONObject;
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException, JSONException, IOException{
-	    
-		/**
-		if( args.length != 2 )
-	    {
-	       System.out.println( "usage: java UDPSender host port" ) ;
-	       return ;
-	    }
-	    */
 		
 		Sender sender = new Sender();
 		DataCollectionClass DataCollection = new DataCollectionClass();
@@ -38,8 +28,7 @@ public class Main {
 					float temp = DataCollection.ReturnTemp();
 					boolean flame = DataCollection.ReturnFlame();
 					boolean smoke = DataCollection.ReturnSmoke();
-					//TimeUnit.SECONDS.sleep(1);
-
+					
 					JSONObject params = sender.SendThis(temp, flame, smoke);
 					byte [] data = params.toString().getBytes();
 					DatagramPacket packet = new DatagramPacket(data , data.length, host, port ) ;
