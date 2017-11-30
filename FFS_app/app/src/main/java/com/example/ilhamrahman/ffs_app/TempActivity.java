@@ -50,5 +50,6 @@ public class TempActivity extends AppCompatActivity {
         String tempString = Double.toString(currentTemp);
         return tempString;
     }
+
 }
 

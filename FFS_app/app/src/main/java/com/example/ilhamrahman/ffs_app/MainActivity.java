@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import java.io.IOException;
+import java.net.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +60,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public String receive(int port) throws IOException {
+
+        @SuppressWarnings("resource")
+        DatagramSocket serverSocket = new DatagramSocket(port);
+        byte[] receiveData = new byte[80];
+        //System.out.printf("Listening on udp:%s:%d%n", InetAddress.getLocalHost().getHostAddress(), port);
+        DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+        serverSocket.receive(receivePacket);
+        String data = new String(receivePacket.getData(), 0, receivePacket.getLength() );
+
+        return data;
+    }
+    public void SplitString(){
+        
+    }
+
+
+
+
+
 
 /*
     @Override
