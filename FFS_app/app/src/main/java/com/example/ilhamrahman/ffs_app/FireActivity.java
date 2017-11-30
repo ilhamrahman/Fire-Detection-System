@@ -26,7 +26,7 @@ public class FireActivity extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = (TextView) findViewById(R.id.textView2);
-        textView.setText(getFireStatus());
+        textView.setText(fireMessage());
 
         //Set up for Home Button OnClick
         Button homeButton = (Button) findViewById(R.id.homeButtonF);
@@ -38,9 +38,19 @@ public class FireActivity extends AppCompatActivity {
             }
         });
     }
-    public static String getFireStatus(){      //Change this method to return the data received from DHU
-        String f_status = "There is no danger of fire at the moment. You can RELAX!";
 
-        return f_status;
+    public String fireMessage() {
+
+        String noFire = "RELAX! There is no danger of fire in your house.";
+        String yesFire = "DANGER! Fire was detected in your house!";
+
+        int fireValue =  Integer.parseInt(MainActivity.fire);
+
+        if (fireValue == 0){  //if fire is detected
+            return yesFire;   //send warning message
+        }
+        else {
+            return noFire;  //otherwise send relax message
+        }
     }
 }

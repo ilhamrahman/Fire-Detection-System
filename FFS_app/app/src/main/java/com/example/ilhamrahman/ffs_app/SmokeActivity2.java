@@ -22,7 +22,7 @@ public class SmokeActivity2 extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = (TextView) findViewById(R.id.textView8);
-        textView.setText(getSmokeStatus());
+        textView.setText(smokeMessage());
 
 
         //Set up for Home Button OnCLick
@@ -36,9 +36,19 @@ public class SmokeActivity2 extends AppCompatActivity {
         });
     }
 
-    public static String getSmokeStatus(){   //Change this method to return the data received from DHU
-        String s_status = "There is no smoke detected at the moment. You can RELAX!";
 
-        return s_status;
+    public String smokeMessage() {
+        String noSmoke = "RELAX! There is no danger of smoke in your house.";
+        String yesSmoke = "DANGER! Smoke was detected in your house!";
+
+        int smokeValue =  Integer.parseInt(MainActivity.smoke);
+
+        if (smokeValue == 1){ //if smoke is detected
+            return yesSmoke;  //send warning message
+        }
+        else {
+            return noSmoke;   //otherwise send relax message
+        }
     }
+
 }

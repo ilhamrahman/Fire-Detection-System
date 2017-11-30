@@ -26,7 +26,7 @@ public class TempActivity extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView status = (TextView) findViewById(R.id.textView12);
-        status.setText(getTempStatus());
+        status.setText(tempMessage());
 
 
         //Set up for Home Button OnCLick
@@ -39,16 +39,24 @@ public class TempActivity extends AppCompatActivity {
             }
         });
     }
+    public String tempMessage() {
 
-    public static String getTempStatus(){   //Change this method to return the data received from DHU
-        String t_status = "The current temperature is at comfortable level under the set threshold. You can RELAX!";
+        String TempLow = "RELAX! The current temperature is below the dangerous threshold temperature.";
+        String TempHigh = "DANGER! The current temperature is above the dangerous threshold temperature.";
 
-        return t_status;
+        double tempValue =  Double.parseDouble(MainActivity.temp);
+
+        if (tempValue > 50){
+            return TempHigh;
+        }
+        else {
+            return TempLow;
+        }
     }
     public String getTemp(){   //Change this method to return the data received from DHU
-        double currentTemp = 25.2;
-        String tempString = Double.toString(currentTemp);
-        return tempString;
+
+        //double tempValue =  Double.parseDouble(MainActivity.temp);
+        return MainActivity.temp;
     }
 
 }

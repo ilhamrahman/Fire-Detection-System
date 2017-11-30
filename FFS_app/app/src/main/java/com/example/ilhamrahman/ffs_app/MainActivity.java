@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
     public static final String SMOKE = "com.example.myfirstapp.SMOKE";
     public static final String TEMPERATURE = "com.example.myfirstapp.TEMPERATURE";
 
+    public static String temp;
+    public static String fire;
+    public static String smoke;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +77,14 @@ public class MainActivity extends AppCompatActivity {
 
         return data;
     }
-    public void SplitString(){
-        
+    public void splitString(int port) throws IOException {
+            String[] split = receive(port).split(":", 3);   //":" is the character at which the string will split into an array of 3 elements
+            temp = split[0]; //The first element of the array is the temperature data
+            fire = split[1];  //The second element of the array is the fire data
+            smoke = split[2]; //The third element of the string is the smoke data
+
     }
+
 
 
 
