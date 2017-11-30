@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //Opening FireActivity OnClick
         Button fireButton = (Button) findViewById(R.id.fireButton);
 
@@ -59,25 +58,40 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(tempIntent);
             }
         });
-    }
-    public String receive(int port) throws IOException {
 
-        @SuppressWarnings("resource")
-        DatagramSocket serverSocket = new DatagramSocket(port);
-        byte[] receiveData = new byte[80];
-        //System.out.printf("Listening on udp:%s:%d%n", InetAddress.getLocalHost().getHostAddress(), port);
-        DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-        serverSocket.receive(receivePacket);
-        String data = new String(receivePacket.getData(), 0, receivePacket.getLength() );
-
-        return data;
-    }
-    public void SplitString(){
-        
+        Thread thread = new Thread(this);
+        thread.run();
+        thread.start();
     }
 
+    public void run() {
 
+        final int PACKETSIZE = 100;
+        android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
+        DatagramSocket socket = null;
 
+        try {
+            // Convert the argument to ensure that is it valid
+            //int port = Integer.parseInt(args[1]);                  //port number
+            int port = 3600;
+//            InetAddress host = InetAddress.getByName(args[0]);     //host address
+            InetAddress host = InetAddress.getByName("10.0.0.53");
+            socket = new DatagramSocket(port);                       //socket
+
+            // Construct the socket
+            //DatagramSocket socket = new DatagramSocket( port ) ;
+
+            for (; ; ) {
+                DatagramPacket packet = new DatagramPacket(new byte[PACKETSIZE], PACKETSIZE);   //initialize packet of data to be received
+                socket.receive(packet);     //receive data
+                String DataReceived = new String(packet.getData()).trim();   //string of data received
+                System.out.println(DataReceived);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
 
 

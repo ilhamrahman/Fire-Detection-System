@@ -1,11 +1,9 @@
-package com.example;
-import java.lang.Process;
-import java.lang.Thread;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class UDPReceiver implements Runnable {
+public class Receiver {
+
     private final static int PACKETSIZE = 100;
 
     @Override
@@ -43,7 +41,6 @@ public class UDPReceiver implements Runnable {
         } catch (Exception e) {
             System.out.println(e);
         }
-        mPhotoTask.setImageDecodeThread(Thread.currentThread());
 
 
     }
