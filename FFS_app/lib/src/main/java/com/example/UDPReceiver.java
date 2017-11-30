@@ -4,17 +4,18 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class UDPReceiver {
-    private final static int PACKETSIZE = 100;
+public class UDPReceiver implements Runnable {
 
-    public static void main(String args[]) {
+    @Override
+    public void run() {
         // Check the arguments
 //        if (args.length != 2)   //if the number of arguments do not include port and host
 //        {
 //            System.out.println("usage: UDPReceiver port");
 //            return;
 //        }
-
+        
+        andorid.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
         DatagramSocket socket = null;
 
         try {
@@ -40,6 +41,7 @@ public class UDPReceiver {
         } catch (Exception e) {
             System.out.println(e);
         }
+        mPhotoTask.setImageDecodeThread(Thread.currentThread());
 
 
     }
