@@ -1,4 +1,5 @@
 //import java.io.IOException;
+import java.io.IOException;
 import java.net.*;
 //import org.json.*;
 
@@ -7,8 +8,26 @@ import java.net.*;
 
 public class Receiver {
 	private final static int PACKETSIZE = 100 ;
+	
+	public static void main(String[] args) throws UnknownHostException, SocketException, IOException  {
+        // TODO code application logic here
+	   String s = "hello";
+        //byte[] buffer = {10,23,12,31,43,32,24};
+	    byte[] buffer = s.getBytes();
+        byte [] IP={(byte)10,(byte)0,2,15};
+        InetAddress address = InetAddress.getByAddress(IP);
+        DatagramPacket packet = new DatagramPacket(
+                buffer, buffer.length, address, 3500
+                );
+        DatagramSocket datagramSocket = new DatagramSocket();
+        datagramSocket.send(packet);
+        System.out.println(InetAddress.getLocalHost().getHostAddress());
 
-	public static void main( String args[] )
+
+    }
+}
+
+	/*public static void main( String args[] )
 	{
 	      // Check the arguments
 	      if( args.length != 2 )   //if the number of arguments do not include port and host
@@ -20,6 +39,7 @@ public class Receiver {
 	      DatagramSocket socket = null ;  
 	      
 	      try
+	      
 	      {
 	         // Convert the argument to ensure that is it valid
 	         int port = Integer.parseInt( args[1] ) ;                  //port number   
@@ -61,7 +81,7 @@ public class Receiver {
 	     
 }
 }
-
+*/
 
 /*
 public class Receiver {

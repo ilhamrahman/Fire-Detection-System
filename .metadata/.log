@@ -932,3 +932,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 !MESSAGE The plugin Needs write access to C:/eclipse/eclipse-java-oxygen-R-win32-x86_64/eclipse/arduinoPlugin
 Due to issues with long pathnames on Windows, the plugin installation path must less than 40 characters. 
 Your current path: C:/eclipse/eclipse-java-oxygen-R-win32-x86_64/eclipse/arduinoPlugin is too long and the plugin will no longer function correctly for all packages.Please visit issue #705 for details. https://github.com/Sloeber/arduino-eclipse-plugin/issues/705
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-11-30 22:18:37.965
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-11-30 22:18:37.973
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType

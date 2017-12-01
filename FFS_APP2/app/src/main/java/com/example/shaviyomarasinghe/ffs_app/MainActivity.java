@@ -11,6 +11,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
 
+import static android.R.attr.permission;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Handler handler = new Handler(){
         public void handleMesssage(Message msg){
             TextView Flareon = (TextView) findViewById(R.id.textView3);
-            Flareon.setText(msg.toString());
+            Flareon.setText("congrats");
 
         }
     };
@@ -69,34 +71,39 @@ public class MainActivity extends AppCompatActivity {
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                String received;
                 final int PACKETSIZE = 100;
                 DatagramSocket socket = null;
-                synchronized (this){
+                //synchronized (this){
+                boolean testBool = true;
+                while (testBool) {
                     try {
                         int port = 3500;
                         InetAddress host = InetAddress.getByName("10.0.0.52");
                         socket = new DatagramSocket(port);
-                        byte[] receiveData = new byte[80];
-                        boolean testBool = true;
-                        while (testBool) {
+                        //boolean testBool = true;
+                        //while (testBool) {
 
                             DatagramPacket packet = new DatagramPacket(new byte[PACKETSIZE], PACKETSIZE);   //initialize packet of data to be received
                             socket.receive(packet);     //receive data
                             String DataReceived = new String(packet.getData()).trim();   //string of data received
-                            if(DataReceived != ""){
-                                Message msg = Message.obtain();
-                                msg.obj = DataReceived;
-                                handler.handleMessage(msg);
-                                testBool = false;
-                            }
+                            Message msg = Message.obtain();
+                            msg.obj = DataReceived;
+                            handler.handleMessage(msg);
+//                            if(DataReceived != ""){
+//                                Message msg = Message.obtain();
+//                                msg.obj = DataReceived;
+//                                handler.handleMessage(msg);
+//                                testBool = false;
+//                            }
 
 
-                        }
+                      // }
 
                     }
                     catch (Exception e) {
-                        System.out.println(e);
+                        TextView Flareon = (TextView) findViewById(R.id.textView3);
+                        Flareon.setText(e.toString());
+                        //System.out.println(e);
                     }
                 }
 
