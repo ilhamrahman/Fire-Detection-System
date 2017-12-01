@@ -4,7 +4,6 @@ int tempPin = 0; //Analog pin for the LM35 Temperature Sensor
 int smokePin = 2; //Analog pin for the MQ5 Gas Sensor
 
 
- Serial.println("}");
 int firePin = 5;  //Digital pin for Flame Sensor
 
 
