@@ -1,5 +1,7 @@
 package com.example.ilhamrahman.ffs_app;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ public class FireActivity extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = (TextView) findViewById(R.id.textView2);
+       // textView.setText(fireMessage());
         textView.setText(fireMessage());
 
         //Set up for Home Button OnClick
