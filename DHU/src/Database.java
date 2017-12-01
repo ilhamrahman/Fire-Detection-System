@@ -62,10 +62,10 @@ public class Database {
 				Statement st = conn.createStatement();
 				ResultSet r = st.executeQuery(sql)){
 			
-			 s = (r.getInt("ID")+ "\t" +
-					r.getFloat("Temperature") + "\t" +
-					r.getInt("Fire") + "\t" + 
-					r.getInt("Smoke") + "\t" +
+			 s = (r.getInt("ID")+ ":" +
+					r.getFloat("Temperature") + ":" +
+					r.getInt("Fire") + ":" + 
+					r.getInt("Smoke") + ":" +
 					r.getString("Time"));
 			//System.out.println(s);
 			

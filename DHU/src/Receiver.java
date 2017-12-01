@@ -25,7 +25,7 @@ public class Receiver {
 	         int port = Integer.parseInt( args[1] ) ;                  //port number   
 	         InetAddress host = InetAddress.getByName( args[0] ) ;     //host address
 	         socket = new DatagramSocket(port) ;                       //socket
-
+	         
 	         // Construct the socket
 	         //DatagramSocket socket = new DatagramSocket( port ) ;
 	         
@@ -47,7 +47,7 @@ public class Receiver {
 	             //String smokeMessage = sender.smokeMessage(data.isSmokeDetected());   //message for smoke status
 	  
 	          
-	             sender.send();     //send the data to the android application
+	             sender.send(db);     //send the data to the android application
 	            
 	         
 	         }
