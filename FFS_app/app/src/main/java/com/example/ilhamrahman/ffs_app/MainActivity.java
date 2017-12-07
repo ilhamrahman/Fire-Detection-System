@@ -110,14 +110,6 @@ public class MainActivity extends AppCompatActivity {
                             fire = split[2];  //The second element of the array is the fire data
                             smoke = split[3]; //The third element of the string is the smoke data
 
-//                            TextView textView = (TextView) findViewById(R.id.textView13);
-//                            textView.setText(fire);
-//
-//                            TextView textView2 = (TextView) findViewById(R.id.textView14);
-//                            textView2.setText(smoke);
-//
-//                            TextView textView3 = (TextView) findViewById(R.id.textView15);
-//                            textView3.setText(temp);
                         }
                     });
                 }

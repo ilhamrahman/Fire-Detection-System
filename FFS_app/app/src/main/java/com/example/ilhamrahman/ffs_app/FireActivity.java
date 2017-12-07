@@ -20,10 +20,6 @@ public class FireActivity extends AppCompatActivity {
         Intent fire = getIntent();
         boolean fire_button = fire.getBooleanExtra(MainActivity.FIRE, false);
 
-        //Set toggleActivity's switch to the boolean from MainActivity.ToggleButton
-        //Switch ToggleButtonStatus = (Switch) findViewById(R.id.switch3);
-        //ToggleButtonStatus.setChecked(fire_button);
-
         String message = fire.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         // Capture the layout's TextView and set the string as its text
