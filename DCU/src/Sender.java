@@ -1,7 +1,7 @@
 import org.json.*;
 
 public class Sender {
-	JSONObject params;
+	public JSONObject params;
 	
 	public Sender() {
 		
