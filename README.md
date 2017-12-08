@@ -26,12 +26,22 @@ The Three Pins of the MQ5 are Color coded and are as follows:
 
 - PinRed: Voltage In
 
-- PinTellow: Analog Out
+- PinYellow: Analog Out
 
 - PinBlack: Ground
 
 
 ###### Sunfounder Flame Sensor
+The Sunfounder Flame Sensor contains both an analog output and a digital output. For the purpose of this project, the digital output was used to determine if a fire was present within the Sensor's proximity. This signal was then sent through the Arduino to the other devices to be used in the system. 
+
+The Three Pins of the Flame Sensor are Color coded and are as follows:
+
+- PinRed: Voltage In
+
+- PinBrown: Digital Out
+
+- PinBlack: Ground
+
 
 ## Raspberry Pi1: Data Collection Unit (DCU)
 ###### [Data Collection Class](https://github.com/ilhamrahman/F5/blob/master/DCU/src/DataCollectionClass.java)
