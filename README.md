@@ -3,7 +3,7 @@ This README file is for the Flareon Flame System put together for the SYSC 3010 
 *(Shaviyo Marasinghe, Brian Ranjan, Ezwad Rahman, Raj Waidyaratna)*
 
 
-## [Arduino(Kuman) UNO](https://github.com/ilhamrahman/F5/blob/master/Arduino/temperatureArduino.ino)
+## [Arduino(Kuman) UNO](https://github.com/ilhamrahman/F5/blob/master/Arduino/temperatureArduino/temperatureArduino.ino)
 ###### LM35 Temperature Sensor
 The Temperature Sensor used on this project is the LM35 Temperature Sensor that comes default with the Kuman kit for the
 Arduino Uno. This Sensor is an Analog Sensor that outputs it's value in millivolts. It is converted to Degrees Celcius
