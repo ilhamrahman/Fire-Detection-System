@@ -20,6 +20,17 @@ The Three Pins of the LM35 are as follows:
 
 
 ###### MQ5 Smoke Sensor
+The MQ5 Smoke Sensor was used in this Project. This smoke sensor's output is an alaog output and it is converted to "Usable values" by deciphering that resistance value as well. In the MQ5, the user must set a certain threshold ratio to get the concentration of gas in the atmosphere. In our project's context, this would be calibrated to detect carbon monoxide concentration in the user's household. 
+
+The Three Pins of the MQ5 are Color coded and are as follows:
+
+-PinRed: Voltage In
+
+-PinTellow: Analog Out
+
+-PinBlack: Ground
+
+
 ###### Sunfounder Flame Sensor
 
 ## Raspberry Pi1: Data Collection Unit (DCU)
