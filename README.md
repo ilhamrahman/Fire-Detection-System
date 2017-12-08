@@ -24,11 +24,11 @@ The MQ5 Smoke Sensor was used in this Project. This smoke sensor's output is an 
 
 The Three Pins of the MQ5 are Color coded and are as follows:
 
--PinRed: Voltage In
+- PinRed: Voltage In
 
--PinTellow: Analog Out
+- PinTellow: Analog Out
 
--PinBlack: Ground
+- PinBlack: Ground
 
 
 ###### Sunfounder Flame Sensor
