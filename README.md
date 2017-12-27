@@ -45,6 +45,7 @@ The Three Pins of the Flame Sensor are Color coded and are as follows:
 
 ## Raspberry Pi1: Data Collection Unit (DCU)
 ###### [Data Collection Class](https://github.com/ilhamrahman/F5/blob/master/DCU/src/DataCollectionClass.java)
+Java Class in charge of gathering information from the arduino UNO microprocessor. This class will acess the serial port of the RPi using the JSerialComm library. This Class recieves the raw data from the microprocessor which it will convert to usable data in degrees celcius, fire status, and smoke status for the temperature sensor, flame sensor, and smoke sensor respectively. 
 ###### [Sender](https://github.com/ilhamrahman/F5/blob/master/DCU/src/Sender.java)
 
 ## Raspberry Pi2: Data Handling Unit (DHU)
