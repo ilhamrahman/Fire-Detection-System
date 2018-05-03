@@ -19,7 +19,10 @@ public class DataAnalysis {
 			e.printStackTrace();
 		} 
 	}
-	/**
+	/**   
+	
+	//WE DID NOT SPLIT THE DATAT HERE. THE DATA WAS SPLIT IN MAIN_ACTIVITY AFTER SENDING THE DATA TO THE ANDROID APP
+	
 	public void splitString() {
 		String[] split = received.split(":", 3);   //":" is the character at which the string will split into an array of 3 elements 
 		temp = split[0];  //The first element of the array is the temperature data
