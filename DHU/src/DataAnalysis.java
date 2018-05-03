@@ -55,7 +55,7 @@ public class DataAnalysis {
 	/** public double gasRatio() {
 		float smokeValue = Float.parseFloat(this.getStringSmoke());  //convert string smoke data to a float
 		double gasRs = (5.0-smokeValue)/smokeValue;   //Rs is resistance of sensor when exposed to gasses
-		double Ro = 1.74;  //Ro is resistance of sensor in clean air
+		double Ro = 1.74;  //Ro is resistance of sensor in clean air   //THIS IS WRONG BECAUSE ACTUAL AIR IS NEVER 100% CLEAN. //USE HIGHER Ro VALUE ACCORDING TO GRAPH (CLOSER TO CARBON MONOXIDE)
 		double ratio = gasRs / Ro;
 		return ratio;
 	}
